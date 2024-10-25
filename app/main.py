@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from .database import engine
-from .models import Base
-from .routers import recipes
+from database.database import engine
+from app.models import Base
+from app.routers import recipes
 
 Base.metadata.create_all(bind=engine)
 
