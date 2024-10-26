@@ -6,6 +6,9 @@ class Recipe(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
-    description = Column(Text)
-    ingredients = Column(Text)
-    instructions = Column(Text)
+    description = Column(String)
+    ingredients = Column(String)
+    instructions = Column(String)
+    # description = Column(Text)
+    # ingredients = Column(Text)
+    # instructions = Column(Text)
