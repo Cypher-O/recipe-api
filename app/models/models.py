@@ -9,6 +9,3 @@ class Recipe(Base):
     description = Column(String)
     ingredients = Column(String)
     instructions = Column(String)
-    # description = Column(Text)
-    # ingredients = Column(Text)
-    # instructions = Column(Text)

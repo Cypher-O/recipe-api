@@ -11,10 +11,10 @@ app = FastAPI(
     title="Recipe API",
     description="A simple API to manage recipes.",
     version="1.0.0",
-    terms_of_service="http://example.com/terms/",
+    terms_of_service="cybercraftsmen.tech",
     contact={
-        "name": "Your Name",
-        "email": "your.email@example.com",
+        "name": "Olumide Awodeji",
+        "email": "olumide.awodeji@hotmail.com",
     },
     license_info={
         "name": "MIT License",
