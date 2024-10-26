@@ -1,13 +1,30 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
-from app import models, schemas
+# from app import models, schemas
+from app.models import models
+from app.schema import schemas
+
+# def create_recipe(db: Session, recipe: schemas.RecipeCreate):
+#     db_recipe = models.Recipe(**recipe.dict())
+#     db.add(db_recipe)
+#     db.commit()
+#     db.refresh(db_recipe)
+#     return db_recipe
 
 def create_recipe(db: Session, recipe: schemas.RecipeCreate):
-    db_recipe = models.Recipe(**recipe.dict())
-    db.add(db_recipe)
-    db.commit()
-    db.refresh(db_recipe)
-    return db_recipe
+    try:
+        # Print the recipe data to debug
+        print("Creating recipe with data:", recipe.dict())
+        db_recipe = models.Recipe(**recipe.dict())  # Ensure correct usage here
+        db.add(db_recipe)
+        db.commit()
+        db.refresh(db_recipe)
+        return db_recipe
+    except Exception as e:
+        # Print the error for debugging
+        print("Error creating recipe:", e)
+        raise HTTPException(status_code=400, detail="Error creating recipe")
+
 
 def read_recipes(db: Session, skip: int = 0, limit: int = 10):
     return db.query(models.Recipe).offset(skip).limit(limit).all()
